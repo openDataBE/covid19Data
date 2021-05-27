@@ -7,9 +7,7 @@ The aim of this repository is to provide open government datasets for SARS-CoV-2
 If you have any questions, please don't hestitate to contact us: <br>
 - SARS-CoV-2 Hotline Canton Bern: +41 31 636 87 87 <br>
 - [info@gsi.be.ch](mailto:info@info.be.ch) <br>
-
 ## List of open government datasets¹ and non-published datasets in this repository
-
 **Federal Office of Public Health FOPH** <br>
 - [Negative Labortests] (not accessible) <br>
 - [Labortests] (not accessible) <br>
@@ -20,20 +18,21 @@ If you have any questions, please don't hestitate to contact us: <br>
 - [Regionalportraets 2020: Kennzahlen aller Gemeinden¹] (https://www.bfs.admin.ch/bfs/de/home/statistiken/regionalstatistik/regionale-portraets-kennzahlen/gemeinden.assetdetail.11587763.html) <br>
 
 **Canton Bern** <br>
+  
 - [Contact Tracing Data - TRACY] (not accessible) <br>
 - [Hospital Data - SPA] (not accessible) <br>
 
-## Table: 1. Tests und laborbestätigte Fälle
+## Table: 7 Tage Inzidenz (Gemeinde)
+
+**File** [7_d_inzidenz_gemeinde.csv](https://github.com/openDataBE/covid19Data/blob/develop/7_d_inzidenz_gemeinde.csv) <br>
 
 **General description** <br>
-The table shows newly reported tests and cases.
-
+The chart shows the current 7-day incidence per 100'000 inhabitants per municipality in the canton of Bern. Municipalities with <= 500 inhabitants are not included in the report.
 
 **Data** <br>
-
->**Negative Labortests (not accessible); Labortests (not accessible); Falldetails (not accessible)** <br>
->*Description:* Snapshot of the difference from the last report of data: The values in this table show the daily newly reported numbers of tests and laboratory-confirmed cases respectively fatalities inculding positivity rate. <br>
->*Spatial unit:* Canton of Bern <br>
+>**Falldetails (not accessible); Swiss official commune register¹; Regionalportraets 2020: Kennzahlen aller Gemeinden¹** <br>
+>*Description:* Snapshot of the previous day: listing of all municipalities in the canton of Bern exept municipalities with 500 or less inhabitants, including the 7- incidence (per 100'000 inhabitants)<br>
+>*Spatial unit:* Municipality in the canton of Bern <br>
 >*Format:* csv <br>
 >*Stability of datasource:* Basically very stable - dependent on Federal Office of Public Health FOPH.<br>
 >*Update periodicy:* This csv file is updated once per working day - usually in the morning.<br>
@@ -41,57 +40,59 @@ The table shows newly reported tests and cases.
 
 **Metadata**
 
-| Field Name                                              | Description                                | Format     | Example   | Source                                                                  |
-|---------------------------------------------------------|--------------------------------------------|------------|-----------|-------------------------------------------------------------------------|
-| __falleingangsdatum\_BAG__                              | Case report date.                          | DD.MM.YYYY |01.05.2021 | Falldetails                                                             |
-| __Durchgefuehrte\_Tests__                               | Number of tests conducted.                 | Number     |5620       | Labortests (not accessible); Falldetails (not accessible)               |
-| __Neue\_laborbestaetigte\_Faelle__                      | New laboratory-confirmed cases.            | Number     |126        | Falldetails                                                             |
-| __Positivitaetsrate__                                   | Positivity rate.                           | Number     |12.5%      | Labortests (not accessible); Falldetails (not accessible); (calculated) |
-| __Neue\_laborbestaetigte\_Todesfaelle__                 | New laboratory-confirmed fatalities.       | Number     |0          | Falldetails                                                             |
-
+| Field Name                                              | Description                                | Format     | Example       | Source                                             |
+|---------------------------------------------------------|--------------------------------------------|------------|---------------|----------------------------------------------------|
+| __datum__                                               | Case report date                           | DD.MM.YYYY |01.05.2021     | Falldetails                                        |
+| __gemeinde__                                            | Municipality                               | Text       |Orpund         | Falldetails                                        |
+| __bfs_nummer__                                          | BFS Number per municipality                | Number     |744            | Swiss official commune register¹                   |
+| __einwohnerzahl__                                       | Number of inhabitants per municipality     | Number     |2800           | Regionalportraets 2020: Kennzahlen aller Gemeinden¹|
+| __7\_d\_inzidenz__                                      | 7-day incidence per 100'000                | Number     |71.43          | calculated                                         |
 
 **Empty values**
 
-| Value    | Meaning |
-|----------| --------|
-|zero      | Zero tests/cases are reported.|
+| Value                  | Meaning |
+|------------------------| --------|
+|[missing municipality]  | Municipalities with 500 or less inhabitants.|
+|[0]  | Zero cases were reported for this municipality within the last 7 days.|
 
+## Table: 7 Tage Inzidenz (Verwaltungskreis)
 
-## Table: 2. COVID-19 Patient*innen im Spital
+**File** [7_d_inzidenz_verwaltungskreis.csv](https://github.com/openDataBE/covid19Data/blob/develop/7_d_inzidenz_verwaltungskreis.csv) <br>
 
 **General description** <br>
-The table shows values on currently hospitalized COVID-19 patients.
+The chart shows the current 7-day incidence per 100'000 inhabitants per region in the canton of Bern.
+
 
 **Data** <br>
 
->**Hospital Data - SPA** <br>
->*Description:* Snapshot on currently hospitalized COVID-19 patients: The values in this table show the current situation of COVID-19 hospitalized patients in the canton of Bern in terms of hospitalization category. <br>
->*Spatial unit:* Canton of Bern <br>
+>**Falldetails (not accessible); Swiss official commune register¹; Regionalportraets 2020: Kennzahlen aller Gemeinden¹** <br>
+>*Description:* Snapshot of the previous day: listing of all regions in the canton of Bern.<br>
+>*Spatial unit:* Region in the canton of Bern <br>
 >*Format:* csv <br>
->*Stability of datasource:* Basically very stable - dependent on "Gesundheits-, Sozial- und Integrationsdirektion (GSI) des Kantons Bern".<br>
->*Update periodicy:* This csv file is updated once per week - usually on Wednesdays. <br>
+>*Stability of datasource:* Basically very stable - dependent on Federal Office of Public Health FOPH.<br>
+>*Update periodicy:* This csv file is updated once per working day - usually in the morning.<br>
 
 
 **Metadata**
 
-| Field Name                                              | Description                                                    | Format     | Example     | Source             |
-|---------------------------------------------------------|----------------------------------------------------------------|------------|-------------|--------------------|
-| __datum__                                               | Report date.                                                   | DD.MM.YYYY |01.05.2021   | Hospital Data - SPA|
-| __personen\_hospitalisiert__                            | Number of hospitalized COVID-19 patients.                      | Number     |145          | Hospital Data - SPA|
-| __auf\_normaler\_Bettenstation__                        | Number of COVID-19 patients in regular wards.                  | Number     |92           | Hospital Data - SPA|
-| __auf\_intensivpflegestation\_unbeatmet__               | Number of COVID-19 patients in intensive care units.           | Number     |30           | Hospital Data - SPA|
-| __auf\_intensivpflegestation\_beatmet__                 | Number of COVID-19 patients in intensive care unit respirated. | Number     |23           | Hospital Data - SPA|
+| Field Name                                              | Description                                | Format     | Example    | Source                                                          |
+|---------------------------------------------------------|--------------------------------------------|------------|------------|-----------------------------------------------------------------|
+| __datum__                                               | Case report date                           | DD.MM.YYYY |01.05.2021  | Falldetails                                                     |
+| __verwaltungskreis__                                    | Region                                     | Text       |Thun        | Falldetails (matched with Swiss official commune register¹)     |
+| __bfs_nummer__                                          | BFS Number per region                      | Number     |247         | Swiss official commune register¹                                |
+| __einwohnerzahl__                                       | Number of inhabitants per region           | Number     |107029      | Regionalportraets 2020: Kennzahlen aller Gemeinden¹ (calculated)|
+| __7\_d\_inzidenz__                                      | 7-day incidence absolute                   | Number     |188         | calculated                                                      |
 
 
 **Empty values**
 
-| Value    | Meaning |
-|----------| --------|
-|zero      | Zero patients are reported.|
+| Value            | Meaning |
+|------------------| --------|
+|[0]  | Zero cases were reported for this region.|
 
+## Table: Contact Tracing
 
-
-## Table: 3. Contact Tracing
+**File** [contact_tracing.csv](https://github.com/openDataBE/covid19Data/blob/develop/contact_tracing.csv) <br>
 
 **General description** <br>
 The table shows values for persons currently in quarantine respectively isolation.
@@ -119,83 +120,12 @@ The table shows values for persons currently in quarantine respectively isolatio
 
 | Value    | Meaning |
 |----------| --------|
-|zero      | Zero persons are reported.
+|[0]     | Zero persons are reported.
+|[empty]     | No data provided.
 
+## Table: Demografie / Gender
 
-## Chart: 4. Inzidenzen (Gemeinde)
-
-**General description** <br>
-The chart shows the current 7-day incidence per 100'000 inhabitants per municipality in the canton of Bern. Municipalities with <= 500 inhabitants are not included in the report.
-
-**Data** <br>
-
->**Falldetails (not accessible); Swiss official commune register¹; Regionalportraets 2020: Kennzahlen aller Gemeinden¹** <br>
->*Description:* Snapshot of the previous day: listing of all municipalities in the canton of Bern with at least one (1) case in the last 14 days, including the 7- incidence (per 100'000 inhabitants)<br>
->*Spatial unit:* Municipality in the canton of Bern <br>
->*Format:* csv <br>
->*Stability of datasource:* Basically very stable - dependent on Federal Office of Public Health FOPH.<br>
->*Update periodicy:* This csv file is updated once per working day - usually in the morning.) <br>
-
-
-**Metadata**
-
-| Field Name                                              | Description                                | Format     | Example       | Source                                             |
-|---------------------------------------------------------|--------------------------------------------|------------|---------------|----------------------------------------------------|
-| __Datum__                                               | Case report date                           | DD.MM.YYYY |01.05.2021     | Falldetails                                        |
-| __gemeinde__                                            | Municipality                               | Text       |Orpund         | Falldetails                                        |
-| __bfs_nummer__                                          | BFS Number per municipality                | Number     |744            | Swiss official commune register¹                   |
-| __einwohnerzahl__                                       | Number of inhabitants per municipality     | Number     |2800           | Regionalportraets 2020: Kennzahlen aller Gemeinden¹|
-| __7\_d\_inzidenz__                                      | 7-day incidence per 100'000                | Number     |71.43          | calculated                                         |
-
-**Empty values**
-
-| Value    | Meaning |
-|----------| --------|
-|empty     | Zero cases are reported.
-
-
-## Chart: 5. Inzidenzen (Verwaltungskreis)
-
-**General description** <br>
-The chart shows the change in the current 7-day respectively 14-day incidence to the last 7-day respectively 14-day incidence per 100'000 inhabitants and absolute per region in the canton of Bern.
-
-
-**Data** <br>
-
->**Falldetails (not accessible); Swiss official commune register¹; Regionalportraets 2020: Kennzahlen aller Gemeinden¹** <br>
->*Description:* Snapshot of the previous day: listing of all municipalities in the canton of Bern with at least one (1) case in the last 14 days, including the 7- and 14-day incidence (per 100'000 inhabitants and absolute) and the respective percentage change. <br>
->*Spatial unit:* Region in the canton of Bern <br>
->*Format:* csv <br>
->*Stability of datasource:* Basically very stable - dependent on Federal Office of Public Health FOPH.<br>
->*Update periodicy:* This csv file is updated once per working day - usually in the morning.) <br>
-
-
-**Metadata**
-
-| Field Name                                              | Description                                | Format     | Example    | Source                                                          |
-|---------------------------------------------------------|--------------------------------------------|------------|------------|-----------------------------------------------------------------|
-| __falleingangsdatum\_BAG__                              | Case report date                           | DD.MM.YYYY |01.05.2021  | Falldetails                                                     |
-| __Verwaltungskreis__                                    | Region                                     | Text       |Thun        | Falldetails (matched with Swiss official commune register¹)     |
-| __Einwohnerzahl\_Verwaltungskreis__                     | Number of inhabitants per region           | Number     |107029      | Regionalportraets 2020: Kennzahlen aller Gemeinden¹ (calculated)|
-| __BFS-Nummer\_Verwaltungskreis__                        | BFS Number per region                      | Number     |247         | Swiss official commune register¹                                |
-| __14\_tages\_inzidenz__                                 | 14-day incidence absolute                  | Number     |188         | calculated                                                      |
-| __14\_tages_inzidenz\_pro\_100k\_einwohner__            | 14-day incidence per 100'000               | Number     |175.65      | calculated                                                      |
-| __vorletzte\_7_tages\_inzidenz__                        | Penultimate 7-day incidence absolute       | Number     |111         | calculated                                                      |
-| __vorletzte\_7\_tages\_inzidenz\_pro\_100k\_einwohner__ | Penultimate 7-day incidence per 100'000    | Number     |103.71      | calculated                                                      |
-| __7\_tages\_inzidenz__                                  | 7-day incidence absolute                   | Number     |77          | calculated                                                      |
-| __7\_tages\_inzidenz\_pro\_100k\_einwohner__            | 7-day incidence per 100'000                | Number     |71.94       | calculated                                                      |
-| __veraenderung\_7\_tages\_inzidenz__                    | percentage change 7-day                    | Number     |-30.63      | calculated                                                      |
-| __faktor\_veraenderung\_7\_tages\_inzidenz__            | factor change 7-day                        | Number     |0.47        | calculated                                                      |
-
-
-**Empty values**
-
-| Value    | Meaning |
-|----------| --------|
-|empty     | Zero cases are reported.|
-
-
-## Chart: 6. Demografie / Gender
+**File** [demografie.csv](https://github.com/openDataBE/covid19Data/blob/develop/demografie.csv) <br>
 
 **General description** <br>
 The chart shows the age distribution of laboratory-confirmed cases.
@@ -226,3 +156,138 @@ The chart shows the age distribution of laboratory-confirmed cases.
 | Value                    | Meaning                                      |
 |--------------------------| ---------------------------------------------|
 |[Missing age bracket]     | No patients in this age range were reported. |
+
+## Table: COVID-19 Patient*innen im Spital
+
+**File** [spa_auslastung.csv](https://github.com/openDataBE/covid19Data/blob/develop/spa_auslastung.csv) <br>
+
+**General description** <br>
+The table shows values on currently hospitalized COVID-19 patients.
+
+**Data** <br>
+
+>**Hospital Data - SPA** <br>
+>*Description:* Snapshot on currently hospitalized COVID-19 patients: The values in this table show the current situation of COVID-19 hospitalized patients in the canton of Bern in terms of hospitalization category. <br>
+>*Spatial unit:* Canton of Bern <br>
+>*Format:* csv <br>
+>*Stability of datasource:* Basically very stable - dependent on "Gesundheits-, Sozial- und Integrationsdirektion (GSI) des Kantons Bern".<br>
+>*Update periodicy:* This csv file is updated once per week - usually on Wednesdays. <br>
+
+
+**Metadata**
+
+| Field Name                                              | Description                                                    | Format     | Example     | Source             |
+|---------------------------------------------------------|----------------------------------------------------------------|------------|-------------|--------------------|
+| __datum__                                               | Report date.                                                   | DD.MM.YYYY |01.05.2021   | Hospital Data - SPA|
+| __personen\_hospitalisiert__                            | Number of hospitalized COVID-19 patients.                      | Number     |145          | Hospital Data - SPA|
+| __auf\_normaler\_Bettenstation__                        | Number of COVID-19 patients in regular wards.                  | Number     |92           | Hospital Data - SPA|
+| __auf\_intensivpflegestation\_unbeatmet__               | Number of COVID-19 patients in intensive care units.           | Number     |30           | Hospital Data - SPA|
+| __auf\_intensivpflegestation\_beatmet__                 | Number of COVID-19 patients in intensive care unit respirated. | Number     |23           | Hospital Data - SPA|
+
+
+**Empty values**
+
+| Value    | Meaning |
+|----------| --------|
+|[0]      | Zero patients are reported.|
+
+## Table: Total cases
+
+**File** [total_faelle.csv](https://github.com/openDataBE/covid19Data/blob/develop/total_faelle.csv) <br>
+
+**General description** <br>
+The table shows the number of total cases and total deaths.
+
+**Data** <br>
+
+>**Falldetails (not accessible)** <br>
+>*Description:* Total number of cases and fatalities per day with at least one case or fatality. The table only shows the most recent date in the dataset.<br>
+>*Spatial unit:* Canton of Bern<br>
+>*Format:* csv<br>
+>*Stability of datasource:* Basically very stable - dependent on Federal Office of Public Health FOPH.<br>
+>*Update periodicy:* This csv file is updated once per working day - usually in the morning.<br>
+
+
+**Metadata**
+
+| Field Name                                              | Description                                                       | Format     | Example       | Source                                    |
+|---------------------------------------------------------|-------------------------------------------------------------------|------------|---------------|-------------------------------------------|
+| __datum__                                               | Case report date.                                                 | DD.MM.YYYY |01.05.2021     | Falldetails                               |
+| __total\_laborbestaetigte\_faelle__                     | Total number of cases.                                            | Number     |2000           | Falldetails (calculated)                  |
+| __total\_todesfaelle__                                  | Total number of fatalities                                        | Number     |200            | Falldetails (calculated)                  |
+
+
+**Empty values**
+
+| Value              | Meaning                                                |
+|--------------------| -------------------------------------------------------|
+|[missing date]      | No new cases and fatalities were reported on this day.
+
+
+## Table: Vortag Fälle
+
+**File** [vortag_faelle.csv](https://github.com/openDataBE/covid19Data/blob/develop/vortag_faelle.csv) <br>
+
+**General description** <br>
+The table shows newly reported cases.
+
+
+**Data** <br>
+
+>**Falldetails (not accessible)** <br>
+>*Description:* Snapshot of the difference from the last report of data: The values in this table show the daily newly reported numbers of laboratory-confirmed cases respectively fatalities. <br>
+>*Spatial unit:* Canton of Bern <br>
+>*Format:* csv <br>
+>*Stability of datasource:* Basically very stable - dependent on Federal Office of Public Health FOPH.<br>
+>*Update periodicy:* This csv file is updated once per working day - usually in the morning.<br>
+
+
+**Metadata**
+
+| Field Name                                              | Description                                | Format     | Example   | Source                                                                  |
+|---------------------------------------------------------|--------------------------------------------|------------|-----------|-------------------------------------------------------------------------|
+| __datum__                              | Case report date.                          | DD.MM.YYYY |01.05.2021 | Falldetails                                                             |
+| __neue\_laborbestaetigte\_Faelle__                      | New laboratory-confirmed cases.            | Number     |126        | Falldetails                                                             |
+| __neue\_Todesfaelle__                 | New laboratory-confirmed fatalities.       | Number     |0          | Falldetails                                                             |
+
+
+**Empty values**
+
+| Value    | Meaning |
+|----------| --------|
+|zero      | Zero cases are reported.|
+
+
+## Table: Vortag Tests
+
+**File** [vortag_tests.csv](https://github.com/openDataBE/covid19Data/blob/develop/vortag_tests.csv) <br>
+
+**General description** <br>
+The table shows newly reported tests.
+
+
+**Data** <br>
+
+>**Negative Labortests (not accessible); Labortests (not accessible)** <br>
+>*Description:* Snapshot of the difference from the last report of data: The values in this table show the daily newly reported numbers of tests inculding positivity rate. <br>
+>*Spatial unit:* Canton of Bern <br>
+>*Format:* csv <br>
+>*Stability of datasource:* Basically very stable - dependent on Federal Office of Public Health FOPH.<br>
+>*Update periodicy:* This csv file is updated once per working day - usually in the morning.<br>
+
+
+**Metadata**
+
+| Field Name                                              | Description                                | Format     | Example   | Source                                                                  |
+|---------------------------------------------------------|--------------------------------------------|------------|-----------|-------------------------------------------------------------------------|
+| __datum__                              | Case report date.                          | DD.MM.YYYY |01.05.2021 | Falldetails                                                             |
+| __durchgefuehrte\_tests__                               | Number of tests conducted.                 | Number     |5620       | Labortests (not accessible); Falldetails (not accessible)               |
+| __positive\_tests__                               | Number of positive tests.                 | Number     |620       | Labortests (not accessible); Falldetails (not accessible)               |
+| __positivitaetsrate__                                   | Positivity rate.                           | Number     |12.5%      | Labortests (not accessible); Falldetails (not accessible); (calculated) |
+
+
+**Empty values**
+
+| Value    | Meaning |
+|----------| --------|
+|zero      | Zero tests are reported.|
