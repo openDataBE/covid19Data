@@ -6,7 +6,7 @@ The aim of this repository is to provide open government datasets for SARS-CoV-2
 
 If you have any questions, please don't hestitate to contact us: <br>
 - SARS-CoV-2 Hotline Canton Bern: +41 31 636 87 87 <br>
-- [info@gsi.be.ch](mailto:info@info.be.ch) <br>
+- [info.gsi@be.ch](mailto:info.gsi@be.ch) <br>
 ## List of open government datasets¹ and non-published datasets in this repository
 **Federal Office of Public Health FOPH** <br>
 - [Negative Labortests] (not accessible) <br>
@@ -176,13 +176,14 @@ The table shows values on currently hospitalized COVID-19 patients.
 
 **Metadata**
 
-| Field Name                                              | Description                                                    | Format     | Example     | Source             |
-|---------------------------------------------------------|----------------------------------------------------------------|------------|-------------|--------------------|
-| __datum__                                               | Report date.                                                   | DD.MM.YYYY |01.05.2021   | Hospital Data - SPA|
-| __personen\_hospitalisiert__                            | Number of hospitalized COVID-19 patients.                      | Number     |145          | Hospital Data - SPA|
-| __auf\_normaler\_Bettenstation__                        | Number of COVID-19 patients in regular wards.                  | Number     |92           | Hospital Data - SPA|
-| __auf\_intensivpflegestation\_unbeatmet__               | Number of COVID-19 patients in intensive care units.           | Number     |30           | Hospital Data - SPA|
-| __auf\_intensivpflegestation\_beatmet__                 | Number of COVID-19 patients in intensive care unit respirated. | Number     |23           | Hospital Data - SPA|
+| Field Name                                              | Description                                                             | Format     | Example     | Source             |
+|---------------------------------------------------------|-------------------------------------------------------------------------|------------|-------------|--------------------|
+| __datum__                                               | Report date.                                                            | DD.MM.YYYY |01.05.2021   | Hospital Data - SPA|
+| __personen\_hospitalisiert__                            | Number of hospitalized COVID-19 patients.                               | Number     |145          | Hospital Data - SPA|
+| __auf\_normaler\_Bettenstation__                        | Number of COVID-19 patients in regular wards.                           | Number     |92           | Hospital Data - SPA|
+| __auf\_intensivpflegestation\_unbeatmet__               | Number of COVID-19 patients in intensive care units.                    | Number     |30           | Hospital Data - SPA|
+| __auf\_intensivpflegestation\_beatmet__                 | Number of COVID-19 patients in intensive care unit respirated.          | Number     |23           | Hospital Data - SPA|
+| __auf\_intensivpflegestation\_total__                   | Sum of COVID-19 patients in intensive care unit unrespirated/respirated.| Number     |53           | Hospital Data - SPA|
 
 
 **Empty values**
