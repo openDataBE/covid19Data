@@ -184,6 +184,11 @@ The table shows values on currently hospitalized COVID-19 patients.
 | __auf\_intensivpflegestation\_unbeatmet__               | Number of COVID-19 patients in intensive care units.                    | Number     |30           | Hospital Data - SPA|
 | __auf\_intensivpflegestation\_beatmet__                 | Number of COVID-19 patients in intensive care unit respirated.          | Number     |23           | Hospital Data - SPA|
 | __auf\_intensivpflegestation\_total__                   | Sum of COVID-19 patients in intensive care unit unrespirated/respirated.| Number     |53           | Hospital Data - SPA|
+| __vac\_prozent\_personen\_hospitalisiert__              | Percentage of vaccinated, hospitalized COVID-19 patients.               | Number (percent)    |6.5          | Hospital Data - SPA|
+| __vac\_prozent\_auf\_normaler\_Bettenstation__          | Percentage of vaccinated, COVID-19 patients in regular wards.           | Number (percent)    |8.3           | Hospital Data - SPA|
+| __vac\_prozent\_auf\_intensivpflegestation\_unbeatmet__ | Percentage of vaccinated, COVID-19 patients in intensive care units.    | Number (percent)    |2.1           | Hospital Data - SPA|
+| __vac\_prozent\_auf\_intensivpflegestation\_beatmet__   | Percentage of vaccinated, COVID-19 patients in intensive care unit respirated.          | Number (percent)    |3.2           | Hospital Data - SPA|
+| __vac\_prozent\_auf\_intensivpflegestation\_total__     | Percentage of vaccinated, COVID-19 patients in intensive care unit unrespirated/respirated.| Number (percent)     |1.2           | Hospital Data - SPA|
 
 
 **Empty values**
@@ -250,6 +255,7 @@ The table shows newly reported cases.
 | __datum__                              | Case report date.                          | DD.MM.YYYY |01.05.2021 | Falldetails                                                             |
 | __neue\_laborbestaetigte\_Faelle__                      | New laboratory-confirmed cases.            | Number     |126        | Falldetails                                                             |
 | __neue\_Todesfaelle__                 | New laboratory-confirmed fatalities.       | Number     |0          | Falldetails                                                             |
+| __vac\_prozent\_neue\_laborbestaetigte\_faelle__                 | 7-Day average of vaccinated cases (percent) of new laboratory-confirmed cases        | Number (percent)     |0          | Falldetails                                                             |
 
 
 **Empty values**
